@@ -1,5 +1,7 @@
 language: objective-c
-before_install: gem install cocoapods
+before_install:
+    - gem install cocoapods
+    - brew update
+    - brew install xctool
 podfile: Example/Podfile
-xcode_workspace: Example/FLUX.xcworkspace
-xcode_scheme: FLUX-Tests
+script: xctool -workspace Example/FLUX.xcworkspace -scheme FLUX-Example build test
